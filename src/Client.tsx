@@ -1,4 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {
+    BrowserRouter,
+} from 'react-router-dom'
+import { App } from 'App'
 
-ReactDOM.render(<h1>Woohoo!</h1>, document.getElementById('root'))
+const entryBlock = document.getElementById('root')
+
+if (entryBlock.hasChildNodes() === true) {
+    ReactDOM.render(<BrowserRouter>
+        <App />
+    </BrowserRouter>, entryBlock)
+} else {
+    ReactDOM.hydrate(<App />, entryBlock)
+}
